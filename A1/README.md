@@ -13,5 +13,5 @@ Ein Student kann nur dann einen Bibliotheksausweis beantragen, wenn die Studieng
 ## Tests ausführen
 
 ```bash
-python -m unittest discover -s tests
+python -m unittest discover -s tests -t .
 ```
