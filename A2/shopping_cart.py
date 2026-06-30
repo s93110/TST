@@ -20,4 +20,10 @@ class ShoppingCart:
         return quantity
     
     def remove_item(self, item_name: str) -> None:
-        pass
+        for i, item in enumerate(self.items):
+            if item[0] == item_name:
+                self.total -= item[1]
+                del self.items[i]
+                break
+        if not self.items:
+            self.empty = True

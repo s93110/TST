@@ -63,7 +63,7 @@ class ShoppingCartTests(unittest.TestCase):
 
         # Artikel entfernen
         self.cart.remove_item("Stift")
-
+        print(self.cart.items)
         # Nach entfernen eines Artikels
         self.assertEqual(len(self.cart.items), 2)
         self.assertEqual(self.cart.get_total(), 15.0)
