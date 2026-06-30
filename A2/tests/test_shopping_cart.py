@@ -50,5 +50,25 @@ class ShoppingCartTests(unittest.TestCase):
         self.assertEqual(len(self.cart.items), 5)
         self.assertEqual(self.cart.get_quantity("Buch"), 3)
 
+
+    def test_remove_item(self) -> None:
+        # Mehrere Artikel hinzufügen
+        self.cart.add_item("Buch", 10.0)
+        self.cart.add_item("Stift", 2.5)
+        self.cart.add_item("Heft", 5.0)
+
+        # Nach hinzufügen von Artikeln
+        self.assertEqual(len(self.cart.items), 3)
+        self.assertEqual(self.cart.get_total(), 17.5)
+
+        # Artikel entfernen
+        self.cart.remove_item("Stift")
+
+        # Nach entfernen eines Artikels
+        self.assertEqual(len(self.cart.items), 2)
+        self.assertEqual(self.cart.get_total(), 15.0)
+        self.assertEqual(self.cart.get_quantity("Stift"), 0)
+
+
 if __name__ == "__main__":
     unittest.main()

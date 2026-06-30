@@ -18,3 +18,6 @@ class ShoppingCart:
     def get_quantity(self, item_name: str) -> int:
         quantity = len([item for item in self.items if item[0] == item_name])
         return quantity
+    
+    def remove_item(self, item_name: str) -> None:
+        pass
