@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "student-library"
+version = "0.1.0"
+description = "Ein kleines Python-Projekt zum Üben von Unit-Tests mit einer Studierenden-Bibliothekskarte."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
