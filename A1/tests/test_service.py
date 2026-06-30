@@ -5,6 +5,7 @@ import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+from student_library import service
 from student_library import EnrollmentError, InMemoryStudentDatabase, LibraryCardService, Student
 
 
@@ -36,6 +37,11 @@ class LibraryCardServiceTests(unittest.TestCase):
         database.mark_tuition_paid("S-300")
 
         self.assertTrue(database.has_paid("S-300"))
+
+    def test_exeption_for_non_existing_student(self) -> None:
+        database = InMemoryStudentDatabase()
+
+        self.assertRaisesRegex(KeyError, "Unbekannte student_id: S-400", database.get_student, "S-400")
 
 
 if __name__ == "__main__":

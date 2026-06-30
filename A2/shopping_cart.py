@@ -19,6 +19,10 @@ class ShoppingCart:
         quantity = len([item for item in self.items if item[0] == item_name])
         return quantity
     
+    def get_total_of_item(self, item_name: str) -> float:
+        total = sum(item[1] for item in self.items if item[0] == item_name)
+        return total
+    
     def remove_item(self, item_name: str) -> None:
         for i, item in enumerate(self.items):
             if item[0] == item_name:
@@ -27,3 +31,6 @@ class ShoppingCart:
                 break
         if not self.items:
             self.empty = True
+
+    def get_average_price_of_object(self, item_name: str) -> float:
+        return self.get_total_of_item(item_name) / self.get_quantity(item_name) if self.get_quantity(item_name)>0 else 0.0
