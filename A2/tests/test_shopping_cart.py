@@ -24,7 +24,7 @@ class ShoppingCartTests(unittest.TestCase):
         self.cart.add_item("Buch", 10.0)
 
         # Nach hinzufügen eines Artikels
-        self.assertEqual(len(self.cart.items),0)
+        self.assertEqual(len(self.cart.items),1)
         self.assertEqual(self.cart.is_empty(), False)
         self.assertEqual(self.cart.get_total(), 10.0)
 

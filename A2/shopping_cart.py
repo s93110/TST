@@ -9,3 +9,8 @@ class ShoppingCart:
     
     def is_empty(self) -> bool:
         return self.empty
+    
+    def add_item(self, item_name: str, price: float) -> None:
+        self.items.append((item_name, price))
+        self.total += price
+        self.empty = False
