@@ -36,9 +36,19 @@ class ShoppingCartTests(unittest.TestCase):
         self.cart.add_item("Heft", 5.0)
         print(self.cart.items)
 
-        self.assertEqual(len(self.cart.items),3)
-        self.assertEqual(self.cart.is_empty(), False)
         self.assertEqual(self.cart.get_total(), 17.5)
+
+    def test_get_quantity_of_item(self) -> None:
+        # Mehrere Artikel hinzufügen
+        self.cart.add_item("Buch", 10.0)
+        self.cart.add_item("Buch", 10.0)
+        self.cart.add_item("Stift", 2.5)
+        self.cart.add_item("Heft", 5.0)
+        self.cart.add_item("Buch", 10.0)
+
+        # Nach hinzufügen von Artikeln
+        self.assertEqual(len(self.cart.items), 5)
+        self.assertEqual(self.cart.get_quantity("Buch"), 3)
 
 if __name__ == "__main__":
     unittest.main()

@@ -14,3 +14,6 @@ class ShoppingCart:
         self.items.append((item_name, price))
         self.total += price
         self.empty = False
+
+    def get_quantity(self, item_name: str) -> int:
+        pass
