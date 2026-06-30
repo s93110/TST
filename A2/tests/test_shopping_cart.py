@@ -22,11 +22,23 @@ class ShoppingCartTests(unittest.TestCase):
 
         # Test Step
         self.cart.add_item("Buch", 10.0)
+        print(self.cart.items)
 
         # Nach hinzufügen eines Artikels
         self.assertEqual(len(self.cart.items),1)
         self.assertEqual(self.cart.is_empty(), False)
         self.assertEqual(self.cart.get_total(), 10.0)
+
+    def test_add_multiple_items_sums_total(self) -> None:
+        # Mehrere Artikel hinzufügen
+        self.cart.add_item("Buch", 10.0)
+        self.cart.add_item("Stift", 2.5)
+        self.cart.add_item("Heft", 5.0)
+        print(self.cart.items)
+
+        self.assertEqual(len(self.cart.items),3)
+        self.assertEqual(self.cart.is_empty(), False)
+        self.assertEqual(self.cart.get_total(), 17.5)
 
 if __name__ == "__main__":
     unittest.main()
